@@ -27,10 +27,11 @@
     .columns:nth-child(2)
     {margin-top: -10rem;}
 
-    .has-image-centered {
-    margin-left: auto;
-    margin-right: auto;
-  } 
+    .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
   .container2{
   font-family: "American Typewriter";
@@ -42,13 +43,27 @@
   font-family: "American Typewriter";
   font-size: 20px;
 }
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
   </style>
   </head>
 
   <body>
-    <div class="card">
-      <div class="card-image has-image-centered">
-          <img src="assets/tree2.png" alt="Tree">
+      <div class="card-image parent">
+          <img src="assets/tree6.png" alt="Tree">
       </div>
       <div class="size">
       <div class="card-content is-overlay">
@@ -61,55 +76,134 @@
          <span class="tag is-white is-large">
           <p></p>
         </span>
+        </div>
       </div>
       </div>
-      </div>
-    </div>
 
-      <section class=mt-6>
-        <div class="container">
-          <div class="columns is-multiline">
-            <div class="column is-one-fifth">
-              <div class="media-content">
-                <div class="content buttons is-centered">
-                  <a class="button is-large is-responsive" href="https://tanazm.github.io/familytree/jafferali/" target="_blank">Jafferali</a>
-                </div>
-              </div>
-            </div>
-            <div class="column is-one-fifth">
-                <div class="media-content">
-                  <div class="content buttons is-centered">
-                    <a class="button is-large is-responsive">Sadru</a>
-                  </div>
-                </div>
-            </div>
-            <div class="column is-one-fifth">
-                <div class="media-content">
-                  <div class="content buttons is-centered"> 
-                    <a class="button is-large is-responsive" href="https://tanazm.github.io/familytree/hyderali/" target="_blank">Hyderali</a>
-                  </div>
-                </div>
-            </div>
-            <div class="column is-one-fifth">
-                <div class="media-content">
-                  <div class="content buttons is-centered">
-                    <a class="button is-large is-responsive">Shahbudin</a>
-                  </div>
-                </div>
-            </div>
-            <div class="column is-one-fifth">
-                <div class="media-content">
-                  <div class="content buttons is-centered">
-                    <a class="button is-large is-responsive">Barkat</a>
-                  </div>
-                </div>
-            </div>
+    <section class="hero is-warning">
+      <div class="hero-body">
+        <p class="title">
+          Small hero
+        </p>
+        <p class="subtitle">
+          Small subtitle
+        </p>
+      </div>
+    </section>
+
+    <section class=mt-6>
+      <div class="container">
+      <div class="columns is-multiline">
+      <div class="column is-one-fifth">
+      <div class="media-content">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Component
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
           </div>
         </div>
-      </section>
+        <footer class="card-footer">
+          <a href="https://tanazm.github.io/familytree/jafferali/" target="_blank" class="card-footer-item">Jafferali</a>
+        </footer>
+      </div>
+      </div>
+      </div>
 
-    <section class="section container">
+      <div class="column is-one-fifth">
+        <div class="media-content">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Component
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item">Sadruddin</a>
+          </footer>
+        </div>
+        </div>
+        </div>
+
+        <div class="column is-one-fifth">
+          <div class="media-content">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Component
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a href="https://tanazm.github.io/familytree/hyderali/" target="_blank" class="card-footer-item">Hyderali</a>
+            </footer>
+          </div>
+          </div>
+          </div>
+
+          <div class="column is-one-fifth">
+            <div class="media-content">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  Component
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Shahbuddin</a>
+              </footer>
+            </div>
+            </div>
+            </div>
+
+            <div class="column is-one-fifth">
+              <div class="media-content">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    Component
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Barkatali</a>
+                </footer>
+              </div>
+              </div>
+              </div>
+      </div>
+      </div>
     </section>
+
+      <svg width=800 height=600 viewBox="0 0 340 333">
+
+        <path class="path" fill="white" stroke="black" stroke-width="4" d="M66.039,133.545c0,0-21-57,18-67s49-4,65,8
+        s30,41,53,27s66,4,58,32s-5,44,18,57s22,46,0,45s-54-40-68-16s-40,88-83,48s11-61-11-80s-79-7-70-41
+        C46.039,146.545,53.039,128.545,66.039,133.545z"/>
+        
+      </svg>
     </footer>
 
   </body>
