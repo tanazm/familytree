@@ -59,21 +59,6 @@
   </style>
   </head>
 
-  <script>
-    var i = 0;
-var txt = 'Meghjani Family Tree';
-var speed = 300;
-
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-typeWriter();
-  </script>
-
   <body>
     <div class="card">
       <div class="card-image has-image-centered">
@@ -83,7 +68,7 @@ typeWriter();
       <div class="card-content is-overlay">
          <span class="tag is-white is-large title">
           <div class="container">
-            <p id="demo">Meghjani Family Tree.</p>
+            <p id="demo"></p>
           </div>
          </span>
          <div class="subtitle">
@@ -172,4 +157,19 @@ typeWriter();
     </footer>
 
   </body>
+
+  <script>
+    var i = 0;
+var txt = 'Meghjani Family Tree';
+var speed = 300;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter();
+  </script>
 </html>
