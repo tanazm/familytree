@@ -1,0 +1,339 @@
+<html>
+<head >
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Family Tree</title>
+ 
+<style>
+* {
+margin: 0;
+padding: 0;
+font-family:sans-serif,Arial;
+font-size:10pt;
+}
+.tree {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+
+.tree ul {
+	padding-left: 20px; position: relative;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.tree li {
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 5px 0 5px 20px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+.tree li::before, .tree li::after{
+	content: '';
+	position: absolute; left: 0; bottom: 50%;
+	border-left: 1px solid #ccc;
+	width: 20px; height: 50%;
+}
+.tree li::after{
+	bottom: auto; top: 50%;
+	border-top: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child{ padding-left: 0;}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before{
+	border-bottom: 1px solid #ccc;
+	border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+}
+.tree li:first-child::after{
+	border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
+	-moz-border-radius: 0 0 0 5px;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before{
+	content: '';
+	position: absolute; left: 0; top: 50%;
+	border-top: 1px solid #ccc;
+	width: 20px; height: 0;
+}
+.tree li div {
+	border: 1px solid #ccc;
+	padding: 10px 5px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+	align-self: center;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+.tree li div .male {
+background-color:#97ac89;
+color: white;
+display: inline-block;
+width:130px;
+padding:10px;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.tree li div .female {
+background-color:#cad4c3;
+display: inline-block;
+width:130px;
+padding:10px;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.tree li div .meg {
+border: 2px solid rgb(65, 64, 64);
+}
+.tree li div .spacer {
+background-color:lightblue;
+display: inline-block;
+width:10px;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li div:hover, .tree li div:hover + ul li div {
+background: #c8e4f8;
+color: #000;
+border: 1px solid #94a0b4;
+}
+
+/*Connector styles on hover*/
+.tree li div:hover + ul li::after,
+.tree li div:hover + ul li::before,
+.tree li div:hover + ul::before,
+.tree li div:hover + ul ul::before {
+border-color: #94a0b4;
+}
+</style>
+ 
+</head>
+<body>
+ 
+<form id="form1">
+ 
+<div class="tree" id="FamilyTreeDiv">
+     
+<ul>
+<li>
+<div>
+    <span class="meg male">Hyderali<p>1601 - 1681</p></span>
+    <span class="spacer"></span>
+    <span class="female">Zarina<p>1633 - 1697</p></span>
+</div>
+<ul>
+
+<li>
+<div>
+    <span class="meg male">Anwar Meghjani<p>1631 - 1695</p></span>
+    <span class="spacer"></span>
+    <span class="female">Nilu<p>1633 - 1697</p></span>
+</div>
+<ul>
+
+<li>
+<div>
+    <span class="meg female">Nadia Meghjani<p>1653 - </p></span>
+    <span class="spacer"></span>
+    <span class="male">Ryan<p>1633 - 1697</p></span>
+</div>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Zubair Meghjani<p>1651 - </p></span>
+</div>
+</li>
+</ul>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Hussain Meghjani<p>1633 - 1697</p></span>
+    <span class="spacer"></span>
+    <span class="female">Gulshan<p>1633 - 1697</p></span>
+</div> 
+<ul>
+
+<li>
+<div>
+    <span class="meg female">Zahra Meghjani<p>1651 - </p></span>
+</div>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Zeeyan Meghjani<p>1651 - </p></span>
+</div>
+</li>
+</ul>
+</li>
+ 
+<li>
+<div>
+    <span class="meg female">Zeenath<p>1633 - 1697</p></span>
+    <span class="spacer"></span>
+    <span class="male">Nasruddin<p>1635 - 1699</p></span>
+</div>
+<ul>
+
+<li>
+<div>
+    <span class="meg male">Raji Meghjani<p>1651 - </p></span>
+    <span class="spacer"></span>
+    <span class="female">Shabina<p>1633 - 1697</p></span>
+</div>
+
+<ul>
+<li>
+<div>
+    <span class="meg male">Zaven Meghjani<p>1651 - </p></span>
+</div>
+</ul>
+</li>
+    
+<li>
+<div>
+    <span class="meg female">Hamida Meghjani<p>1651 - </p></span>
+    <span class="spacer"></span>
+    <span class="male">Suleman<p>1633 - 1697</p></span>
+</div>
+<ul>
+<li>
+<div>
+    <span class="meg male">Shaze Meghjani<p>1651 - </p></span>
+</div>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Hazen Meghjani<p>1651 - </p></span>
+</div>
+</ul>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Gotu Meghjani<p>1651 - </p></span>
+</div>
+</li>
+</ul>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Hasan Meghjani<p>1651 - </p></span>
+    <span class="spacer"></span>
+    <span class="female">Nasrin Meghjani<p>1633 - 1697</p></span>
+</div>
+<ul>
+<li>
+<div>
+    <span class="meg female">Noureen Meghjani<p>1651 - </p></span>
+</div>
+</li>
+    
+<li>
+<div>
+    <span class="meg male">Mohseen Meghjani<p>1651 - </p></span>
+</div>
+</ul>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Amin Meghjani<p>1651 - </p></span>
+    <span class="spacer"></span>
+    <span class="female">Dilshad Meghjani<p>1633 - 1697</p></span>
+</div>
+<ul>
+<li>
+<div>
+    <span class="meg female">Khatdija Meghjani<p>1651 - </p></span>
+</div>
+</li>
+        
+<li>
+<div>
+    <span class="meg female">Tanaz Meghjani<p>1651 - </p></span>
+</div>
+</ul>
+</li>
+
+<li>
+<div>
+    <span class="meg male">Abdulhamid Meghjani<p>1651 - </p></span>
+    <span class="spacer"></span>
+    <span class="female">Malika Meghjani<p>1633 - 1697</p></span>
+</div>
+<ul>
+<li>
+<div>
+    <span class="meg male">Uwaiz Meghjani<p>1651 - </p></span>
+</div>
+</li>
+        
+<li>
+<div>
+    <span class="meg male">Ali Meghjani<p>1651 - </p></span>
+</div>
+</ul>
+</li>
+
+</form>
+ 
+</body>
+</html>
